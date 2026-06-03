@@ -291,6 +291,75 @@ footer{
 .location-links a:hover{
     transform:translateY(-3px) scale(1.03);
 }
+    .hero-content{
+    max-width:900px;
+}
+
+.hero-divider{
+    width:180px;
+    height:3px;
+    background:#d9b06f;
+    margin:20px auto 35px;
+    border-radius:20px;
+}
+
+.typing-title{
+    font-size:56px;
+    margin-bottom:15px;
+    opacity:0;
+    animation:fadeUp .8s forwards;
+}
+
+.typing-text{
+    margin:20px 0;
+    opacity:0;
+    overflow:hidden;
+    white-space:nowrap;
+    width:0;
+    border-left:3px solid rgba(255,255,255,.8);
+}
+
+.delay-1{
+    animation:
+        typing 4s steps(70,end) forwards,
+        blink .7s infinite;
+    animation-delay:1s;
+}
+
+.delay-2{
+    animation:
+        typing 7s steps(150,end) forwards,
+        blink .7s infinite;
+    animation-delay:5.5s;
+}
+
+@keyframes typing{
+    from{
+        width:0;
+        opacity:1;
+    }
+    to{
+        width:100%;
+        opacity:1;
+    }
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style>
 
 </head>
@@ -298,16 +367,24 @@ footer{
 
 <section class="hero">
     <div class="hero-content">
-        <h1>روستای گازرخان و جاذبه‌های الموت</h1>
-        <p>
+
+        <h1 class="typing-title">
+            روستای گازرخان و جاذبه‌های الموت
+        </h1>
+
+        <div class="hero-divider"></div>
+
+        <p id="line1" class="typing-text delay-1">
             از قلعه تاریخی حسن صباح تا دریاچه اوان و طبیعت بکر اندج؛
             همه در نزدیکی اقامتگاه بوم‌گردی دِتَر.
         </p>
-        <p>
+
+        <p id="line2" class="typing-text delay-2">
             گازرخان یکی از مشهورترین روستاهای منطقه الموت قزوین است که به واسطه
             قرار گرفتن قلعه تاریخی حسن صباح و طبیعت بی‌نظیر اطراف آن، سالانه
             گردشگران بسیاری را به خود جذب می‌کند.
         </p>
+
     </div>
 </section>
 
@@ -651,7 +728,52 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });
+<script>
+const texts = [
+{
+id: "line1",
+text: "از قلعه تاریخی حسن صباح تا دریاچه اوان و طبیعت بکر اندج؛ همه در نزدیکی اقامتگاه بوم‌گردی دِتَر."
+},
+{
+id: "line2",
+text: "گازرخان یکی از مشهورترین روستاهای منطقه الموت قزوین است که به واسطه قرار گرفتن قلعه تاریخی حسن صباح و طبیعت بی‌نظیر اطراف آن، سالانه گردشگران بسیاری را به خود جذب می‌کند."
+}
+];
 
+function typeWords(element,text,speed=120){
+
+const words=text.split(" ");
+let i=0;
+
+const timer=setInterval(()=>{
+
+if(i<words.length){
+
+element.innerHTML += words[i] + " ";
+i++;
+
+}else{
+
+clearInterval(timer);
+
+}
+
+},speed);
+
+}
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+typeWords(document.getElementById("line1"),texts[0].text,140);
+},1000);
+
+setTimeout(()=>{
+typeWords(document.getElementById("line2"),texts[1].text,100);
+},5000);
+
+});
+</script>
 </script>
 </body>
 </html>
