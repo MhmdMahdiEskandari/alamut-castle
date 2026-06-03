@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>گازرخان و جاذبه‌های الموت</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma,sans-serif;
+    line-height:2;
+    background:#f6f1e7;
+    color:#333;
+}
+
+.hero{
+    height:70vh;
+    background:url("images/gazorkhan.jpg") center/cover no-repeat;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    font-size:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.section{
+    margin-bottom:70px;
+}
+
+.section h2{
+    color:#6b4b1f;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+    margin-top:25px;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.card-content{
+    font-size:18px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+footer{
+    background:#3d2a14;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .card{
+        grid-template-columns:1fr;
+    }
+
+    .section h2{
+        font-size:28px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>روستای گازرخان و جاذبه‌های الموت</h1>
+        <p>
+            گازرخان یکی از مشهورترین روستاهای منطقه الموت قزوین است که به واسطه
+            قرار گرفتن قلعه تاریخی حسن صباح و طبیعت بی‌نظیر اطراف آن، سالانه
+            گردشگران بسیاری را به خود جذب می‌کند.
+        </p>
+    </div>
+</section>
+
+<div class="container">
+
+    <section class="section">
+        <h2>روستای گازرخان</h2>
+
+        <div class="card">
+            <img src="images/gazorkhan.jpg" alt="روستای گازرخان">
+
+            <div class="card-content">
+                <p>
+                    گازرخان در قلب منطقه الموت شرقی واقع شده و به دلیل طبیعت
+                    کوهستانی، باغ‌های میوه، هوای پاک و نزدیکی به قلعه الموت
+                    شهرت فراوانی دارد. این روستا یکی از مهم‌ترین مقاصد
+                    گردشگری استان قزوین محسوب می‌شود.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>قلعه حسن صباح</h2>
+
+        <div class="card">
+            <img src="images/alamut-castle.jpg" alt="قلعه الموت">
+
+            <div class="card-content">
+                <p>
+                    قلعه الموت که با نام قلعه حسن صباح نیز شناخته می‌شود،
+                    بر فراز صخره‌ای مرتفع ساخته شده و یکی از مشهورترین
+                    آثار تاریخی ایران است. این دژ در قرن پنجم هجری
+                    مرکز حکومت اسماعیلیان نزاری بوده است.
+                </p>
+
+                <p>
+                    از بالای قلعه می‌توان منظره‌ای شگفت‌انگیز از کوهستان‌های
+                    البرز و دره‌های سرسبز الموت را مشاهده کرد.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>دریاچه اوان</h2>
+
+        <div class="card">
+            <img src="images/avan-lake.jpg" alt="دریاچه اوان">
+
+            <div class="card-content">
+                <p>
+                    دریاچه اوان یکی از زیباترین دریاچه‌های طبیعی ایران است.
+                    این دریاچه در میان کوه‌ها و دشت‌های سرسبز قرار گرفته و
+                    در تمامی فصل‌های سال چشم‌اندازهای منحصر‌به‌فردی دارد.
+                </p>
+
+                <p>
+                    قایق‌سواری، عکاسی طبیعت و پیاده‌روی از محبوب‌ترین
+                    فعالیت‌های گردشگران در این منطقه هستند.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>روستای اندج</h2>
+
+        <div class="card">
+            <img src="images/andej.jpg" alt="روستای اندج">
+
+            <div class="card-content">
+                <p>
+                    روستای اندج یکی از زیباترین روستاهای الموت است که
+                    به دلیل باغ‌های فراوان، رودخانه‌های دائمی و طبیعت
+                    کوهستانی شناخته می‌شود.
+                </p>
+
+                <p>
+                    این روستا نقطه شروع بسیاری از مسیرهای کوهنوردی
+                    و طبیعت‌گردی منطقه است.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>پیج بن</h2>
+
+        <div class="card">
+            <img src="images/pichbon.jpg" alt="پیج بن">
+
+            <div class="card-content">
+                <p>
+                    منطقه پیج بن از جاذبه‌های کمتر شناخته‌شده اما بسیار
+                    زیبای الموت است. چشم‌انداز کوهستانی، دشت‌های سرسبز
+                    و سکوت دلنشین این منطقه، آن را به مقصدی عالی برای
+                    علاقه‌مندان طبیعت تبدیل کرده است.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>گالری تصاویر الموت</h2>
+
+        <div class="gallery">
+            <img src="images/gazorkhan.jpg" alt="">
+            <img src="images/alamut-castle.jpg" alt="">
+            <img src="images/avan-lake.jpg" alt="">
+            <img src="images/andej.jpg" alt="">
+            <img src="images/pichbon.jpg" alt="">
+            <img src="images/alamut-nature.jpg" alt="">
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    الموت؛ سرزمین تاریخ، طبیعت و مهمان‌نوازی
+</footer>
+
+</body>
+</html>
