@@ -319,8 +319,6 @@ footer{
 
     margin-bottom:20px;
 
-    letter-spacing:1px;
-
     text-shadow:0 2px 10px rgba(0,0,0,.5);
 
     animation:fadeUp 1.2s ease;
@@ -341,27 +339,71 @@ footer{
         transform:scale(1);
     }
 }
+.intro{
+    position:fixed;
+    inset:0;
+    background:#f6f1e7;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    animation:fadeOut 1s ease forwards;
+    animation-delay:2.5s;
+}
+
+.intro-logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    animation:pop 1s ease;
+}
+
+.hero-present{
+    font-size:32px;
+    color:#6b4b1f;
+    animation:fadeUp 1.2s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(.5);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
 </style>
 
 </head>
 <body>
 
+<div class="intro">
+
+    <img src="images/icon.png" class="intro-logo" alt="دِتَر">
+
+    <div class="hero-present">اقامتگاه دِتَر تقدیم می‌کند</div>
+
+</div>
+
 <section class="hero">
     <div class="hero-content">
-        <img src="images/icon.png" alt="اقامتگاه دِتَر" class="hero-logo">
 
-        <div class="hero-present">اقامتگاه دِتَر تقدیم می کند</div>
         <h1 class="typing-title">
             روستای گازرخان و جاذبه‌های الموت
         </h1>
 
-
-        <p class="">
+        <p>
             از قلعه تاریخی حسن صباح تا دریاچه اوان و طبیعت بکر اندج؛
             همه در نزدیکی اقامتگاه بوم‌گردی دِتَر.
         </p>
 
-        <p class="">
+        <p>
             گازرخان یکی از مشهورترین روستاهای منطقه الموت قزوین است که به واسطه
             قرار گرفتن قلعه تاریخی حسن صباح و طبیعت بی‌نظیر اطراف آن، سالانه
             گردشگران بسیاری را به خود جذب می‌کند.
@@ -596,6 +638,17 @@ footer{
             </div>
     
         </div>
+            <div class="location-box" style="margin-top:30px; border-right:5px solid #3d2a14;">
+    
+            <p style="font-size:28px; font-weight:bold;">
+                📌 پیشنهاد دِتَر برای یک روز کامل در الموت
+            </p>
+    
+            <p>🌄 صبح ← پیک‌نیک در کنار صخره‌های اندج</p>
+            <p>🍽 ظهر ← استراحت و صرف ناهار در اقامتگاه</p>
+            <p>🏰 بعد از ظهر ← بازدید از قلعه حسن صباح</p>
+    
+        </div>
     
     </section>
 
@@ -611,26 +664,6 @@ footer{
                     اگر دوست دارید این مسیرها را از نزدیک تجربه کنید،
                     اقامتگاه دِتَر آماده میزبانی شماست.
                 </p>
-    
-                <div class="location-box">
-    
-                    <p>
-                        🌿 پیشنهاد دِتَر برای یک روز کامل در الموت:
-                    </p>
-    
-                    <p>
-                        🌄 صبح ← پیک‌نیک در کنار صخره‌های اندج
-                    </p>
-    
-                    <p>
-                        🍽 ظهر ← استراحت و صرف ناهار در اقامتگاه
-                    </p>
-    
-                    <p>
-                        🏰 بعد از ظهر ← بازدید از قلعه حسن صباح
-                    </p>
-    
-                </div>
     
                 <div class="location-box">
     
