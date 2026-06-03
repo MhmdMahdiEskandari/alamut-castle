@@ -62,7 +62,7 @@ body{
 
 .hero p{
     max-width:800px;
-    font-size:20px;
+    font-size:30px;
 }
 
 .container{
@@ -96,7 +96,7 @@ body{
 }
 
 .card-content{
-    font-size:18px;
+    font-size:27px;
 }
 
 .gallery{
@@ -126,7 +126,7 @@ footer{
     }
 
     .hero p{
-        font-size:16px;
+        font-size:24px;
     }
 
     .card{
@@ -136,6 +136,99 @@ footer{
     .section h2{
         font-size:28px;
     }
+}
+    html{
+    scroll-behavior:smooth;
+}
+
+.section{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1s ease;
+}
+
+.section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.hero{
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("images/gazorkhan.jpg") center/cover no-repeat;
+    animation:heroZoom 20s infinite alternate;
+    z-index:-1;
+}
+
+@keyframes heroZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.15);
+    }
+}
+
+.card{
+    background:rgba(255,255,255,.55);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.card img{
+    transition:all .7s ease;
+    overflow:hidden;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.gallery img{
+    transition:.6s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.section h2{
+    position:relative;
+    display:inline-block;
+}
+
+.section h2::after{
+    content:"";
+    position:absolute;
+    bottom:-8px;
+    right:0;
+    width:70%;
+    height:3px;
+    background:#c59d5f;
+    border-radius:5px;
+}
+
+.card-content p{
+    margin-bottom:15px;
+}
+
+footer{
+    font-size:26px;
 }
 </style>
 
@@ -254,23 +347,58 @@ footer{
     </section>
 
     <section class="section">
-        <h2>گالری تصاویر الموت</h2>
+    <h2>گالری تصاویر الموت</h2>
 
-        <div class="gallery">
-            <img src="images/gazorkhan.jpg" alt="">
-            <img src="images/alamut-castle.jpg" alt="">
-            <img src="images/avan-lake.jpg" alt="">
-            <img src="images/andej.jpg" alt="">
-            <img src="images/pichbon.jpg" alt="">
-            <img src="images/alamut-nature.jpg" alt="">
-        </div>
-    </section>
+    <div class="gallery">
+
+        <img src="images/gazorkhan.jpg" alt="گازرخان">
+
+        <img src="images/alamut-castle.jpg" alt="قلعه الموت">
+
+        <img src="images/alamut-castle2.jpg" alt="قلعه الموت">
+
+        <img src="images/avan-lake.jpg" alt="دریاچه اوان">
+
+        <img src="images/andej.jpg" alt="اندج">
+
+        <img src="images/andej2.jpg" alt="اندج">
+
+        <img src="images/pichbon.jpg" alt="پیچ بن">
+
+        <img src="images/alamut-nature.jpg" alt="طبیعت الموت">
+
+    </div>
+</section>
 
 </div>
 
 <footer>
     الموت؛ سرزمین تاریخ، طبیعت و مهمان‌نوازی
 </footer>
+<script>
 
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('show');
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+</script>
 </body>
 </html>
