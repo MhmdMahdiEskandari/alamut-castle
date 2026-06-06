@@ -378,6 +378,44 @@ footer{
         visibility:hidden;
     }
 }
+
+    .lightbox{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.95);
+        display:none;
+        justify-content:center;
+        align-items:center;
+        z-index:99999;
+        cursor:pointer;
+    }
+    
+    .lightbox.active{
+        display:flex;
+    }
+    
+    .lightbox img{
+        max-width:90%;
+        max-height:90vh;
+        border-radius:15px;
+        box-shadow:0 0 40px rgba(255,255,255,.2);
+        animation:zoomIn .3s ease;
+    }
+    
+    @keyframes zoomIn{
+        from{
+            opacity:0;
+            transform:scale(.8);
+        }
+        to{
+            opacity:1;
+            transform:scale(1);
+        }
+    }
+    
+    .gallery img{
+        cursor:pointer;
+    }
 </style>
 
 </head>
@@ -471,6 +509,57 @@ footer{
             </div>
             
         </div>
+    </section>
+
+    <section class="section">
+
+        <h2>دره گرماگلو</h2>
+    
+        <div class="card">
+    
+            <img src="images/garmagaloo.jpg" alt="دره گرماگلو">
+    
+            <div class="card-content">
+    
+                <p>
+                    دره گرماگلو یکی از چشم‌اندازهای طبیعی و کمتر شناخته‌شده منطقه
+                    الموت است. این دره با صخره‌های مرتفع، پوشش گیاهی متنوع و هوای
+                    مطبوع، مقصدی جذاب برای طبیعت‌گردان و علاقه‌مندان به عکاسی
+                    محسوب می‌شود.
+                </p>
+    
+                <p>
+                    نزدیکی این دره به گازرخان باعث شده گردشگران بتوانند در یک
+                    برنامه کوتاه، هم از قلعه حسن صباح و هم از طبیعت بکر منطقه
+                    بازدید کنند.
+                </p>
+    
+                <div class="location-box">
+    
+                    <p class="distance">
+                        📍 فاصله تا اقامتگاه دِتَر: حدود ۱۰ دقیقه با خودرو
+                    </p>
+    
+                    <div class="location-links">
+    
+                        <a target="_blank"
+                           href="https://neshan.org/maps/places/fac8627ab3676ca83ed8c9a3b2df945b#c36.437-50.586-17z-0p">
+                            مشاهده در نشان
+                        </a>
+    
+                        <a target="_blank"
+                           href="https://balad.ir/p/337HfjMDvY3m3S?preview=true#15/36.43809/50.58835">
+                            مشاهده در بلد
+                        </a>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
     </section>
 
     <section class="section">
@@ -686,6 +775,37 @@ footer{
         </div>
     
     </section>
+
+
+    <section class="section">
+
+        <h2>📸 آلبوم خاطرات دِتَر</h2>
+    
+        <div class="card">
+    
+            <div class="card-content">
+    
+                <p>
+                    هر گوشه از الموت داستانی برای روایت دارد.
+                    بخشی از خاطرات ثبت‌شده مهمانان دِتَر را در اینجا مشاهده می‌کنید.
+                </p>
+    
+            </div>
+    
+        </div>
+    
+        <div class="gallery guest-gallery">
+    
+            <img src="images/guest1.jpg" alt="">
+            <img src="images/guest2.jpg" alt="">
+            <img src="images/guest3.jpg" alt="">
+            <img src="images/guest4.jpg" alt="">
+            <img src="images/guest5.jpg" alt="">
+            <img src="images/guest6.jpg" alt="">
+    
+        </div>
+    
+    </section>
     
     <section class="section">
     <h2>گالری تصاویر الموت</h2>
@@ -697,6 +817,8 @@ footer{
         <img src="images/alamut-castle.jpg" alt="قلعه الموت">
 
         <img src="images/alamut-castle2.jpg" alt="قلعه الموت">
+
+        <img src="images/garmagaloo.jpg" alt="دره گرماگلو">
 
         <img src="images/avan-lake.jpg" alt="دریاچه اوان">
 
@@ -748,5 +870,41 @@ footer{
         observer.observe(section);
     });
 </script>
+    <div class="lightbox" id="lightbox">
+        <img src="" id="lightbox-img" alt="">
+    </div>
 </body>
+    <script>
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        
+        document.querySelectorAll(".gallery img").forEach(img => {
+        
+            img.addEventListener("click", () => {
+        
+                lightbox.classList.add("active");
+        
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+        
+            });
+        
+        });
+        
+        lightbox.addEventListener("click", () => {
+        
+            lightbox.classList.remove("active");
+        
+        });
+        
+        document.addEventListener("keydown", (e) => {
+        
+            if(e.key === "Escape"){
+                lightbox.classList.remove("active");
+            }
+        
+        });
+        
+        </script>
 </html>
