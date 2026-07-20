@@ -870,16 +870,8 @@ footer{
 
 </footer>
 <script>
-    window.addEventListener('load', () => {
-    
-        const intro = document.querySelector('.intro');
-    
-        setTimeout(() => {
-    
-            intro.classList.add('hide');
-    
-        }, 1500);
-    
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.intro').classList.add('hide');
     });
     const sections = document.querySelectorAll('.section');
     
