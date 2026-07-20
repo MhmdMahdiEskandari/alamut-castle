@@ -871,7 +871,11 @@ footer{
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelector('.intro').classList.add('hide');
+        const intro = document.querySelector('.intro');
+
+        setTimeout(() => {
+            intro.classList.add('hide');
+        }, 1000);
     });
     const sections = document.querySelectorAll('.section');
     
