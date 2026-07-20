@@ -299,7 +299,7 @@ footer{
 .location-links a:hover{
     transform:translateY(-3px) scale(1.03);
 }
-    .hero-logo{
+.hero-logo{
     width:70px;
     height:70px;
     object-fit:cover;
@@ -344,23 +344,48 @@ footer{
     inset:0;
     background:#f6f1e7;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
-    z-index:9999;
-    animation-delay:2.5s;
-}
-.intro.hide{
-    animation:fadeOut 1s ease forwards;
+    flex-direction:column;
+    z-index:99999;
+    overflow:hidden;
 }
 
-.intro-logo{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    margin-bottom:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-    animation:pop 1s ease;
+.intro-image{
+    width:180px;
+    height:180px;
+    border-radius:30px;
+    object-fit:cover;
+    transition:transform 2s ease,
+               width 2s ease,
+               height 2s ease,
+               border-radius 2s ease;
+}
+
+.intro.expand .intro-image{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:70vh;
+    border-radius:0;
+    transform:none;
+}
+
+.intro.expand{
+    background:transparent;
+}
+
+.hero{
+    height:70vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-background{
+    width:100%;
+    height:100%;
+    background:url("images/gazorkhan.jpg") center/cover;
 }
 
 .hero-present{
@@ -381,22 +406,22 @@ footer{
     }
 }
 
-    .lightbox{
-        position:fixed;
-        inset:0;
-        background:rgba(0,0,0,.95);
-        display:none;
-        justify-content:center;
-        align-items:center;
-        z-index:99999;
-        cursor:pointer;
-    }
+.lightbox {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    cursor:pointer;
+}
     
-    .lightbox.active{
-        display:flex;
-    }
+.lightbox.active{
+    display:flex;
+}
     
-    .lightbox img{
+.lightbox img{
         max-width:90%;
         max-height:90vh;
         border-radius:15px;
@@ -425,31 +450,14 @@ footer{
 
 <div class="intro">
 
-    <img src="images/icon.png" class="intro-logo" alt="دِتَر">
+    <img src="images/icon.png" class="intro-image" alt="دِتَر">
 
     <div class="hero-present">اقامتگاه دِتَر تقدیم می‌کند</div>
 
 </div>
 
 <section class="hero">
-    <div class="hero-content">
-
-        <h1 class="typing-title">
-            روستای گازرخان و جاذبه‌های الموت
-        </h1>
-
-        <p>
-            از قلعه تاریخی حسن صباح تا دریاچه اوان و طبیعت بکر اندج؛
-            همه در نزدیکی اقامتگاه بوم‌گردی دِتَر.
-        </p>
-
-        <p>
-            گازرخان یکی از مشهورترین روستاهای منطقه الموت قزوین است که به واسطه
-            قرار گرفتن قلعه تاریخی حسن صباح و طبیعت بی‌نظیر اطراف آن، سالانه
-            گردشگران بسیاری را به خود جذب می‌کند.
-        </p>
-
-    </div>
+    <div class="hero-background"></div>
 </section>
 
 <div class="container">
@@ -870,12 +878,22 @@ footer{
 
 </footer>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const intro = document.querySelector('.intro');
+    window.addEventListener("load", () => {
 
+        const intro = document.querySelector(".intro");
+    
         setTimeout(() => {
-            intro.classList.add('hide');
-        }, 1750);
+    
+            intro.classList.add("expand");
+    
+        }, 800);
+    
+        setTimeout(() => {
+    
+            intro.remove();
+    
+        }, 2800);
+    
     });
     const sections = document.querySelectorAll('.section');
     
