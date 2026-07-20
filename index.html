@@ -36,7 +36,6 @@ body{
 
 .hero{
     height:70vh;
-    background:url("images/icon.png") center/cover no-repeat;
     position:relative;
 }
 
@@ -171,9 +170,43 @@ footer{
     content:"";
     position:absolute;
     inset:0;
-    background:url("images/icon.png") center/cover no-repeat;
-    animation:heroZoom 20s infinite alternate;
+    background:#f6f1e7;
     z-index:-1;
+}
+
+.hero{
+    height:70vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+@media (max-width:768px){
+
+    .hero{
+        height:55vh;
+    }
+
+    .hero-logo-large{
+        width:280px;
+        height:280px;
+    }
+
+}
+
+.hero-logo-large{
+    width:400px;
+    height:400px;
+    object-fit:contain;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    animation:heroZoom 20s infinite alternate;
 }
 
 @keyframes heroZoom{
@@ -435,9 +468,7 @@ footer{
 
 <section class="hero">
 
-    <h1 class="typing-title">
-        روستای گازرخان و جاذبه‌های الموت
-    </h1>
+    <img src="images/icon.png" class="hero-logo-large" alt="دتر">
 
 </section>
 
